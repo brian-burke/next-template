@@ -3,9 +3,7 @@ import { Container } from "@material-ui/core";
 import { useTranslation } from "next-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
 import { ButtonExample } from "@Atoms";
-
 import { counterSlice } from "@ReduxModules/Counter";
 import { useGetUsersQuery } from "@ReduxModules/User";
 

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -33,26 +37,47 @@
       "@Organisms": [
         "src/Components/Organisms"
       ],
-      "@Definitions/*": ["src/Definitions/*"],
-      "@Definitions": ["src/Definitions"],
-      "@Interfaces": ["src/Interfaces"],
-      "@Interfaces/*": ["src/Interfaces/*"],
-      "@Pages/*": ["pages/*"],
-      "@Redux": ["src/Redux"],
-      "@Redux/*": ["src/Redux/*"],
+      "@Definitions/*": [
+        "src/Definitions/*"
+      ],
+      "@Definitions": [
+        "src/Definitions"
+      ],
+      "@Interfaces": [
+        "src/Interfaces"
+      ],
+      "@Interfaces/*": [
+        "src/Interfaces/*"
+      ],
+      "@Pages/*": [
+        "pages/*"
+      ],
+      "@Redux": [
+        "src/Redux"
+      ],
+      "@Redux/*": [
+        "src/Redux/*"
+      ],
       "@ReduxModules": [
         "src/Redux/Modules"
       ],
       "@ReduxModules/*": [
         "src/Redux/Modules/*"
       ],
-      "@Static/*": ["public/static/*"],
-      "@Test/*": ["test/*"],
-      "@src": ["./src"],
+      "@Static/*": [
+        "public/static/*"
+      ],
+      "@Test/*": [
+        "test/*"
+      ],
+      "@src": [
+        "./src"
+      ],
       "@src/*": [
         "./src/*"
-      ],
-    }
+      ]
+    },
+    "incremental": true
   },
   "exclude": [
     "node_modules",
@@ -75,6 +100,6 @@
     "./node_modules/redux-persist/types",
     "cypress/**/*.js",
     "jest.config.js",
-    "next.config.js",
+    "next.config.js"
   ]
 }

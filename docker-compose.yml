@@ -1,0 +1,31 @@
+version: '3'
+services:
+  frontend:
+    container_name: ${PROJECT_SLUG}_frontend
+    build:
+      context: .
+      dockerfile: ./docker/${ENVIRONMENT}/Dockerfile
+      args:
+        - NODE_ENV=${ENVIRONMENT}
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+    env_file:
+      - ./.env
+    ports:
+      - "3005:3005"
+
+  # Cypress container for our end-to-end testing
+  cypress:
+    container_name: ${PROJECT_SLUG}_cypress
+    # the Docker image to use from https://github.com/cypress-io/cypress-docker-images
+    image: "adamgoldman/cypress-m1"
+    depends_on:
+      - frontend
+    environment:
+      # pass base url to test pointing at the web application
+      - CYPRESS_baseUrl=http://frontend:3005
+    # share the current folder as volume to avoid copying
+    working_dir: /app
+    volumes:
+      - ./:/app
