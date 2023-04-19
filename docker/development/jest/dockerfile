@@ -1,0 +1,17 @@
+# Dockerfile
+# Use node alpine as it's a small node image
+FROM node:alpine
+ENV PORT 3005
+
+WORKDIR /app
+
+# Ensure port 3005 is accessible to our system
+EXPOSE 3005
+
+# Run yarn dev, as we would via the command line
+#ENTRYPOINT [ "yarn", "install","&&","yarn","start:dev" ]
+ENTRYPOINT ["/bin/sh", "-c" , "yarn install && yarn test:unit"]
+
+
+# Optional entrypoint for debugging if build is failing
+#ENTRYPOINT ["tail", "-f", "/dev/null"]

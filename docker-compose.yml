@@ -4,7 +4,7 @@ services:
     container_name: ${PROJECT_SLUG}_frontend
     build:
       context: .
-      dockerfile: ./docker/${ENVIRONMENT}/Dockerfile
+      dockerfile: ./docker/${ENVIRONMENT}/frontend/dockerfile
       args:
         - NODE_ENV=${ENVIRONMENT}
     restart: unless-stopped
@@ -29,3 +29,16 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
+
+  jest:
+    container_name: ${PROJECT_SLUG}_jest
+    build:
+      context: .
+      dockerfile: ./docker/${ENVIRONMENT}/jest/dockerfile
+      args:
+        - NODE_ENV=${ENVIRONMENT}
+    volumes:
+      - ./:/app
+    env_file:
+      - ./.env
+
